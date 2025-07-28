@@ -1,0 +1,31 @@
+{
+  "manifest_version": 3,
+  "name": "arXiv PDF Viewer",
+  "version": "1.0",
+  "description": "Adds a button to arXiv abstract pages to view PDFs in a new tab",
+  "permissions": [
+    "activeTab",
+    "scripting"
+  ],
+  "host_permissions": [
+    "https://arxiv.org/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["https://arxiv.org/abs/*"],
+      "js": ["content.js"],
+      "css": ["content.css"]
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["index.html"],
+      "matches": ["https://arxiv.org/*"]
+    }
+  ],
+  "icons": {
+    "16": "icons/icon.png",
+    "48": "icons/icon.png",
+    "128": "icons/icon.png"
+  }
+} 

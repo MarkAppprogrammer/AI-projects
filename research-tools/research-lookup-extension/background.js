@@ -1,4 +1,6 @@
 import { runLLM } from './llm.js';
+//import { parseMarkdown } from './utils.js';
+import './utils.js';
 
 chrome.runtime.onInstalled.addListener(() => {
   chrome.contextMenus.create({
@@ -23,7 +25,6 @@ chrome.contextMenus.onClicked.addListener(async (info, tab) => {
     //console.log(prompt);
 
     try {
-      // Call Hugging Face API (replace with your API endpoint & token)
 
       const definition = await runLLM(prompt);
 
@@ -97,7 +98,8 @@ function showPopup(selectedText, definition) {
   const truncatedText = firstParagraph.length > 200 ? 
     firstParagraph.substring(0, 200) + '...' : 
     firstParagraph;
-  definitionText.textContent = truncatedText;
+  // Render markdown in the popup
+  definitionText.innerHTML = parseMarkdown(truncatedText);
 
   // Add hover effects
   popup.addEventListener('mouseenter', () => {

@@ -1,0 +1,164 @@
+{
+  "items": {
+    "Quantum Phase Estimation": {
+      "type": "concept",
+      "prerequisites": [
+        {"name": "Quantum Fourier Transform", "type": "concept"},
+        {"name": "Phase Kickback", "type": "concept"},
+        {"name": "Quantum Measurement", "type": "concept"}
+      ]
+    },
+    "Quantum Fourier Transform": {
+      "type": "concept",
+      "prerequisites": [
+        {"name": "Classical Fourier Transform", "type": "concept"},
+        {"name": "Quantum Gates", "type": "concept"},
+        {"name": "Hadamard Gate", "type": "concept"}
+      ]
+    },
+    "Quantum Computation and Quantum Information": {
+      "type": "book",
+      "prerequisites": [
+        {"name": "Linear Algebra", "type": "concept"},
+        {"name": "Probability Theory", "type": "concept"},
+        {"name": "Basic Quantum Mechanics", "type": "concept"}
+      ]
+    },
+    "Linear Algebra": {
+      "type": "concept",
+      "prerequisites": [
+        {"name": "Basic Algebra", "type": "concept"},
+        {"name": "Matrix Operations", "type": "concept"}
+      ]
+    },
+    "Classical Fourier Transform": {
+      "type": "concept",
+      "prerequisites": [
+        {"name": "Complex Numbers", "type": "concept"},
+        {"name": "Integration", "type": "concept"}
+      ]
+    },
+    "Phase Kickback": {
+      "type": "concept",
+      "prerequisites": [
+        {"name": "Quantum Gates", "type": "concept"},
+        {"name": "Quantum Superposition", "type": "concept"}
+      ]
+    },
+    "Quantum Measurement": {
+      "type": "concept",
+      "prerequisites": [
+        {"name": "Quantum Superposition", "type": "concept"},
+        {"name": "Probability Theory", "type": "concept"}
+      ]
+    },
+    "Quantum Gates": {
+      "type": "concept",
+      "prerequisites": [
+        {"name": "Linear Algebra", "type": "concept"},
+        {"name": "Matrix Operations", "type": "concept"}
+      ]
+    },
+    "Hadamard Gate": {
+      "type": "concept",
+      "prerequisites": [
+        {"name": "Quantum Gates", "type": "concept"},
+        {"name": "Linear Algebra", "type": "concept"}
+      ]
+    },
+    "Probability Theory": {
+      "type": "concept",
+      "prerequisites": [
+        {"name": "Basic Statistics", "type": "concept"},
+        {"name": "Set Theory", "type": "concept"}
+      ]
+    },
+    "Basic Quantum Mechanics": {
+      "type": "concept",
+      "prerequisites": [
+        {"name": "Classical Mechanics", "type": "concept"},
+        {"name": "Linear Algebra", "type": "concept"},
+        {"name": "Differential Equations", "type": "concept"}
+      ]
+    },
+    "Basic Algebra": {
+      "type": "concept",
+      "prerequisites": []
+    },
+    "Matrix Operations": {
+      "type": "concept",
+      "prerequisites": [
+        {"name": "Basic Algebra", "type": "concept"}
+      ]
+    },
+    "Complex Numbers": {
+      "type": "concept",
+      "prerequisites": [
+        {"name": "Basic Algebra", "type": "concept"}
+      ]
+    },
+    "Integration": {
+      "type": "concept",
+      "prerequisites": [
+        {"name": "Basic Algebra", "type": "concept"},
+        {"name": "Calculus", "type": "concept"}
+      ]
+    },
+    "Quantum Superposition": {
+      "type": "concept",
+      "prerequisites": [
+        {"name": "Linear Algebra", "type": "concept"},
+        {"name": "Basic Quantum Mechanics", "type": "concept"}
+      ]
+    },
+    "Basic Statistics": {
+      "type": "concept",
+      "prerequisites": [
+        {"name": "Basic Algebra", "type": "concept"}
+      ]
+    },
+    "Set Theory": {
+      "type": "concept",
+      "prerequisites": [
+        {"name": "Basic Logic", "type": "concept"}
+      ]
+    },
+    "Classical Mechanics": {
+      "type": "concept",
+      "prerequisites": [
+        {"name": "Calculus", "type": "concept"},
+        {"name": "Basic Physics", "type": "concept"}
+      ]
+    },
+    "Differential Equations": {
+      "type": "concept",
+      "prerequisites": [
+        {"name": "Calculus", "type": "concept"},
+        {"name": "Linear Algebra", "type": "concept"}
+      ]
+    },
+    "Calculus": {
+      "type": "concept",
+      "prerequisites": [
+        {"name": "Basic Algebra", "type": "concept"}
+      ]
+    },
+    "Basic Physics": {
+      "type": "concept",
+      "prerequisites": [
+        {"name": "Basic Algebra", "type": "concept"},
+        {"name": "Basic Geometry", "type": "concept"}
+      ]
+    },
+    "Basic Logic": {
+      "type": "concept",
+      "prerequisites": []
+    },
+    "Basic Geometry": {
+      "type": "concept",
+      "prerequisites": [
+        {"name": "Basic Algebra", "type": "concept"}
+      ]
+    }
+  }
+} 
