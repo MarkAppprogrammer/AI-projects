@@ -33,7 +33,8 @@ def draw_boxes(image_path, results, model):
     image = Image.open(image_path).convert("RGB")
     draw = ImageDraw.Draw(image)
 
-    font = ImageFont.truetype("arial.ttf", size=12)
+    # font = ImageFont.truetype("arial.ttf", size=12)
+    font = ImageFont.load_default()
 
     for score, label, box in zip(results["scores"], results["labels"], results["boxes"]):
         box = [round(i, 2) for i in box.tolist()]
