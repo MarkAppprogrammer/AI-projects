@@ -5,9 +5,9 @@
 Attempting to make bc-resnet model. Faced unequal stried problem in tensorflow so switching to pytorch. code is written 95% manually by me which is why it is also not the most efficent method.
 
 ### References
-- [1st Paper](#)
-- [2nd Paper](#)
-- [Google Database](#)
+- [1st Paper](https://arxiv.org/pdf/2106.04140)
+- [2nd Paper](https://arxiv.org/pdf/2210.15425)
+- [Google Database](http://download.tensorflow.org/data/speech_commands_v0.02.tar.gz)
 
 ### Model Scaling
 To scale the BC-ResNet model, increase the channel width by a factor of `x` to derive BC-ResNet-x from BC-ResNet-1. BC-ResNet-3 is recommended for the best balance between accuracy and parameter efficiency.
