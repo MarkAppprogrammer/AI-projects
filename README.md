@@ -1,6 +1,9 @@
-## Cool Ai Projects
+# Cool Ai Projects
 
-# Voice Project
+## Yolo Project
+Yolo from hugging face api, simple and fun!!
+
+## Voice Project
 
 Attempting to make bc-resnet model. Faced unequal stried problem in tensorflow so switching to pytorch. code is written 95% manually by me which is why it is also not the most efficent method.
 
