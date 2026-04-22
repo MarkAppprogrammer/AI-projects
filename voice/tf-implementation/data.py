@@ -78,23 +78,6 @@ noise_file_list = ["/Users/mark/ai-projects/voice/speech_commands_v0.02/_backgro
 
 noise_files = tf.constant(noise_file_list)
 
-# def add_noise(wav):
-#     prob = tf.random.uniform([])
-
-#     def apply_noise():
-#         noise_path = tf.random.shuffle(noise_files)[0]
-#         noise_audio = tf.io.read_file(noise_path)
-#         noise_audio, _ = tf.audio.decode_wav(noise_audio)
-
-#         noise_audio = tf.squeeze(noise_audio, axis=-1)
-
-#         noise_audio = tf.pad(noise_audio, [[0, tf.shape(wav)[0] - tf.shape(noise_audio)[0]]])
-#         #noise_audio = noise_audio[:tf.shape(wav)[0]]
-
-#         return wav + 0.1 * noise_audio
-
-#     return tf.cond(prob < 0.8, apply_noise, lambda: wav)
-
 def add_noise(wav):
     prob = tf.random.uniform([])
 
@@ -102,16 +85,10 @@ def add_noise(wav):
         noise_path = tf.random.shuffle(noise_files)[0]
         noise_audio = tf.io.read_file(noise_path)
         noise_audio, _ = tf.audio.decode_wav(noise_audio)
+
         noise_audio = tf.squeeze(noise_audio, axis=-1)
 
-        wav_len = tf.shape(wav)[0]
-        noise_len = tf.shape(noise_audio)[0]
-
-        noise_audio = tf.cond(
-            noise_len < wav_len,
-            lambda: tf.pad(noise_audio, [[0, wav_len - noise_len]]),
-            lambda: noise_audio[:wav_len]
-        )
+        noise_audio = noise_audio[:tf.shape(wav)[0]]
 
         return wav + 0.1 * noise_audio
 
@@ -164,10 +141,6 @@ def tf_preprocess(f):
 
     return mel, label
 
-#fix label = -1 error
-def filter_invalid(mel, label):
-    return label != -1
-
 def make_dataset(files, batch_size=32, shuffle=True):
     ds = tf.data.Dataset.from_tensor_slices(files)
 
@@ -175,8 +148,6 @@ def make_dataset(files, batch_size=32, shuffle=True):
         ds = ds.shuffle(buffer_size=len(files))
 
     ds = ds.map(tf_preprocess, num_parallel_calls=tf.data.AUTOTUNE)
-
-    ds = ds.filter(lambda mel, label: tf.not_equal(label, -1))
 
     ds = ds.batch(batch_size)  # no padding needed
 
