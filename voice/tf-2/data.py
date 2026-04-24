@@ -20,6 +20,11 @@ for root, _, files in os.walk(DATASET_PATH):
     for f in files:
         if f.endswith(".wav"):
             rel_path = os.path.relpath(os.path.join(root, f), DATASET_PATH)
+            # Skip special folders like `_background_noise_` which are not labels.
+            # These otherwise produce label_id == -1 via the lookup table default.
+            first_dir = rel_path.split(os.sep, 1)[0]
+            if first_dir.startswith("_"):
+                continue
             all_wavs.append(rel_path)
 
 train_files = []
@@ -87,8 +92,14 @@ def add_noise(wav):
         noise_audio, _ = tf.audio.decode_wav(noise_audio)
 
         noise_audio = tf.squeeze(noise_audio, axis=-1)
+        wav_len = tf.shape(wav)[0]
+        noise_len = tf.shape(noise_audio)[0]
 
-        noise_audio = noise_audio[:tf.shape(wav)[0]]
+        # Ensure noise matches wav length (pad/tile then slice).
+        # Some background noise files can be shorter than a training clip.
+        repeats = tf.maximum(1, tf.cast(tf.math.ceil(tf.cast(wav_len, tf.float32) / tf.cast(noise_len, tf.float32)), tf.int32))
+        noise_audio = tf.tile(noise_audio, [repeats])
+        noise_audio = noise_audio[:wav_len]
 
         return wav + 0.1 * noise_audio
 
